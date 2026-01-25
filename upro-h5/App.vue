@@ -55,12 +55,15 @@
 		color: #ffffff;
 		/* line-height: 1.8; */
 	}
-	
+	/* 隐藏所有页面的 navigationBar */
+	.uni-app--showtopwindow uni-page-head {
+	  display: none;
+	}
 	/* 1. uni.showModal 弹窗适配 */
 	/* #ifdef H5 */
 	/* H5 平台的弹窗样式 */
 	.uni-modal {
-	  background-color: #1e1e1e !important;
+	  background-color: rgb(49, 49, 63) !important;
 	  border-radius: 8px !important;
 	}
 	
@@ -88,7 +91,7 @@
 	
 	.uni-modal__btn {
 	  flex: 1 !important;
-	  color: #0a84ff !important;
+	  color: rgb(191, 95, 193) !important;
 	  font-size: 16px !important;
 	  border: none !important;
 	  border-radius: 0 !important;
@@ -101,7 +104,7 @@
 	}
 	
 	.uni-modal__btn_primary {
-	  color: #0a84ff !important;
+	  color: rgb(191, 95, 193) !important;
 	}
 	
 	.uni-mask {
@@ -116,7 +119,7 @@
 	uni-modal,
 	uni-modal .uni-modal,
 	.uni-modal {
-	  background-color: #1e1e1e !important;
+	  background-color: rgb(49, 49, 63) !important;
 	}
 	
 	.uni-modal .uni-modal__title {
@@ -132,7 +135,7 @@
 	}
 	
 	.uni-modal .uni-modal__btn {
-	  color: #0a84ff !important;
+	  color: rgb(191, 95, 193) !important;
 	  font-size: 17px !important;
 	}
 	
@@ -194,7 +197,7 @@
 	/* 4. uni.showActionSheet 适配 */
 	/* #ifdef H5 */
 	.uni-actionsheet {
-	  background-color: #1e1e1e !important;
+	  background-color: rgb(49, 49, 63) !important;
 	  border-radius: 12px 12px 0 0 !important;
 	}
 	
@@ -202,7 +205,7 @@
 	.uni-actionsheet__menu,
 	.uni-actionsheet__cell {
 	  color: #ffffff !important;
-	  background-color: #1e1e1e !important;
+	  background-color: rgb(49, 49, 63) !important;
 	  border-bottom: 1px solid #333 !important;
 	}
 	
@@ -212,19 +215,19 @@
 	
 	.uni-actionsheet__action {
 	  color: #ff3b30 !important;
-	  background-color: #1e1e1e !important;
+	  background-color: rgb(49, 49, 63) !important;
 	  border-top: 4px solid #121212 !important;
 	}
 	/* #endif */
 	
 	/* #ifdef APP-PLUS */
 	.uni-actionsheet {
-	  background-color: #1e1e1e !important;
+	  background-color: rgb(49, 49, 63) !important;
 	}
 	
 	.uni-actionsheet__cell {
 	  color: #ffffff !important;
-	  background-color: #1e1e1e !important;
+	  background-color: rgb(49, 49, 63) !important;
 	  border-bottom: 1px solid #333 !important;
 	}
 	/* #endif */
@@ -241,7 +244,7 @@
 	
 	.uni-input-placeholder,
 	.uni-textarea-placeholder {
-	  color: #666 !important;
+	  color: rgb(153, 153, 153) !important;
 	}
 	/* #endif */
 	
@@ -262,8 +265,8 @@
 	}
 	
 	uni-button[type="primary"] {
-	  background-color: #0a84ff !important;
-	  border-color: #0a84ff !important;
+	  background-color: rgb(191, 95, 193) !important;
+	  border-color: rgb(191, 95, 193) !important;
 	}
 	
 	uni-button[type="default"] {
@@ -275,8 +278,8 @@
 	
 	/* #ifdef APP-PLUS */
 	uni-button[type="primary"] {
-	  background-color: #0a84ff !important;
-	  border-color: #0a84ff !important;
+	  background-color: rgb(191, 95, 193) !important;
+	  border-color: rgb(191, 95, 193) !important;
 	  color: #ffffff !important;
 	}
 	
@@ -295,8 +298,8 @@
 	}
 	
 	uni-switch .uni-switch-input.uni-switch-input-checked {
-	  background-color: #0a84ff !important;
-	  border-color: #0a84ff !important;
+	  background-color: rgb(191, 95, 193) !important;
+	  border-color: rgb(191, 95, 193) !important;
 	}
 	/* #endif */
 	
@@ -306,105 +309,46 @@
 	}
 	
 	uni-switch .uni-switch-input.uni-switch-input-checked {
-	  background-color: #0a84ff !important;
+	  background-color: rgb(191, 95, 193) !important;
 	}
 	/* #endif */
 	
-	/* 8. Radio/Checkbox 适配 */
-	/* #ifdef H5 */
-	uni-radio .uni-radio-input,
-	uni-checkbox .uni-checkbox-input {
-	  background-color: #2c2c2c !important;
-	  border-color: #666 !important;
-	}
-	
-	uni-radio .uni-radio-input.uni-radio-input-checked,
-	uni-checkbox .uni-checkbox-input.uni-checkbox-input-checked {
-	  background-color: #0a84ff !important;
-	  border-color: #0a84ff !important;
-	}
-	/* #endif */
-	
-	/* #ifdef APP-PLUS */
-	uni-radio .uni-radio-input,
-	uni-checkbox .uni-checkbox-input {
-	  background-color: #2c2c2c !important;
-	  border-color: #666 !important;
-	}
-	
-	uni-radio .uni-radio-input.uni-radio-input-checked,
-	uni-checkbox .uni-checkbox-input.uni-checkbox-input-checked {
-	  background-color: #0a84ff !important;
-	}
-	/* #endif */
 	
 	/* 9. Tabbar 适配 */
 	/* #ifdef H5 */
 	.uni-tabbar {
-	  background-color: #1e1e1e !important;
+	  background-color: rgb(49, 49, 63) !important;
 	  border-color: #333 !important;
+		border-radius: 10px;
 	}
 	
 	.uni-tabbar__icon,
 	.uni-tabbar__label {
-	  color: #666 !important;
+	  color: rgb(153, 153, 153);
 	}
 	
 	.uni-tabbar__icon.uni-tabbar__icon--active,
 	.uni-tabbar__label.uni-tabbar__label--active {
-	  color: #0a84ff !important;
+	  color: rgb(191, 95, 193) !important;
 	}
 	/* #endif */
 	
 	/* #ifdef APP-PLUS */
 	.uni-tabbar {
-	  background-color: #1e1e1e !important;
+	  background-color: rgb(49, 49, 63) !important;
+	  border-color: #333 !important;
+		border-radius: 10px;
 	}
 	
 	.uni-tabbar__icon {
-	  color: #666 !important;
+	  color: rgb(153, 153, 153) !important;
 	}
 	
 	.uni-tabbar__icon.uni-tabbar__icon--active {
-	  color: #0a84ff !important;
+	  color: rgb(191, 95, 193) !important;
 	}
 	/* #endif */
-	
-	/* 10. Navigation Bar 适配 */
-	/* #ifdef H5 */
-	.uni-page-head {
-	  background-color: #1e1e1e !important;
-	  border-color: #333 !important;
-	}
-	
-	.uni-page-head__title {
-	  color: #ffffff !important;
-	}
-	
-	.uni-page-head-btn {
-	  color: #0a84ff !important;
-	}
-	/* #endif */
-	
-	/* #ifdef APP-PLUS */
-	.uni-page-head {
-	  background-color: #1e1e1e !important;
-	}
-	
-	.uni-page-head .uni-navbar__header {
-	  background-color: #1e1e1e !important;
-	}
-	
-	.uni-navbar__title {
-	  color: #ffffff !important;
-	}
-	
-	.uni-navbar__left,
-	.uni-navbar__right {
-	  color: #0a84ff !important;
-	}
-	/* #endif */
-	
+
 	/* 11. 滚动条适配 */
 	/* #ifdef H5 */
 	::-webkit-scrollbar {
@@ -418,7 +362,7 @@
 	}
 	
 	::-webkit-scrollbar-thumb:hover {
-	  background-color: #666;
+	  background-color: rgb(153, 153, 153);
 	}
 	/* #endif */
 	
@@ -433,12 +377,12 @@
 	.uni-picker__wrapper,
 	.uni-picker__mask,
 	.uni-picker__hd {
-	  background-color: #1e1e1e !important;
+	  background-color: rgb(49, 49, 63) !important;
 	  color: #ffffff !important;
 	}
 	
 	.uni-picker__action {
-	  color: #0a84ff !important;
+	  color: rgb(191, 95, 193) !important;
 	}
 	
 	.uni-picker__item {
@@ -449,7 +393,7 @@
 	/* #ifdef APP-PLUS */
 	/* App 平台的 Picker 可能需要特殊处理 */
 	.uni-picker {
-	  background-color: #1e1e1e !important;
+	  background-color: rgb(49, 49, 63) !important;
 	}
 	/* #endif */
 	
@@ -461,8 +405,8 @@
 	}
 	
 	uni-slider .uni-slider-handle {
-	  background-color: #0a84ff !important;
-	  border-color: #0a84ff !important;
+	  background-color: rgb(191, 95, 193) !important;
+	  border-color: rgb(191, 95, 193) !important;
 	}
 	/* #endif */
 	
@@ -472,7 +416,47 @@
 	}
 	
 	uni-slider .uni-slider-handle {
-	  background-color: #0a84ff !important;
+	  background-color: rgb(191, 95, 193) !important;
 	}
 	/* #endif */
+	.uni-navbar__header {
+		height: 30px !important;
+		background-color: #393948 !important;
+		padding: 0 18px !important;
+	}
+	.uni-nav-bar-text {
+		color: #ffffff !important;
+		font-size: 17px !important;
+	}
+	.uni-navbar--border{
+		border-color: #393948 !important;
+	}
+	.uni-icons {
+		color: #ffffff !important;
+	}
+	.uni-collapse {
+		background-color: #393948 !important;
+		border-radius: 8px;
+		overflow: hidden;
+	}
+	.uni-collapse-item__title-box, .uni-collapse-item__wrap {
+		background-color: #393948 !important;
+		padding: 0 !important;
+	}
+	.uni-collapse-item__title-arrow {
+		margin-right: 0 !important;
+	}
+	.uni-collapse-item__wrap-content {
+		background-color: #393948 !important;
+		color: #fbfaff !important;
+	}
+	.uni-collapse-item__title-text{
+		color: #fbfaff !important;
+	}
+	.uni-collapse-item__title.uni-collapse-item-border, .uni-collapse-item__wrap-content.uni-collapse-item--border{
+		border-color: #444459 !important;
+	}
+	.uni-collapse-item__title.is-open {
+		border-color: #393948 !important;
+	}
 </style>

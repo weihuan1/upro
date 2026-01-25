@@ -1,0 +1,53 @@
+.title {
+	font-size: 24px;
+	font-weight: 500;
+	text-align: center;
+	margin-top: 20px;
+}
+.label {
+	height: 20px;
+}
+.content {
+	width: 70%;
+	margin: 44px auto 0;
+	padding: 22px 20px 82px;
+	.label {
+		margin-bottom: 18px;
+	}
+	.input-bg {
+		margin-bottom: 12px;
+	}
+	.input2 {
+		margin-top: 30px;
+	}
+	.code {
+		font-size: 13px;
+		margin-left: 30px;
+	}
+	.tips {
+		color: rgb(146, 146, 152);
+		font-size: 12px;
+		.left {
+			flex: 1;
+		}
+		.light {
+			color: rgb(191, 95, 193)
+		}
+	}
+}
+.save {
+	text-align: right;
+	margin-top: 16px;
+	font-size: 13px;
+	color: rgb(191, 95, 193);
+}
+.login {
+	width: 60px;
+	margin: -30px auto 0;
+}
+.toggle {
+	color: rgb(191, 95, 193);
+	font-size: 12px;
+	text-align: center;
+	margin-top: 50px;
+}

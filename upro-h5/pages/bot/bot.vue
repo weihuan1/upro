@@ -1,6 +1,6 @@
 <template>
 	<view>
-		关于
+		量化
 	</view>
 </template>
 

@@ -18,3 +18,37 @@
 .zhuanfa:before {
   content: "\e610";
 }
+.dialog-bg {
+	background-color: #393948;
+	box-shadow: 0 0 33px rgba(34, 34, 44, .245528);
+	border-radius: 13px;
+}
+.input-bg {
+	height: 48px;
+	background: #5a5a6d;
+	border-radius: 8px;
+	display: block;
+	font-size: 15px;
+	margin: 0 auto;
+	color: #fefefe;
+	border: unset;
+	display: flex;
+	padding-right: 16px;
+	align-items: center;
+	justify-content: center;
+	.uni-input {
+		background: #5a5a6d !important;
+		border-color: #5a5a6d !important;
+	}
+	.uni-input-placeholder {
+		color: rgb(151, 151, 157) !important;
+	}
+}
+.flex {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.wrap {
+	padding: 0 22px;
+}
