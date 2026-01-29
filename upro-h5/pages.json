@@ -1,18 +1,5 @@
 {
-	"leftWindow": {
-		"path": "windows/left-window.vue",
-		"style": {
-			"width": "0px"
-		}
-	},
-	"topWindow": {
-		"path": "windows/top-window.vue",
-		"style": {
-			"height": "0px"
-		}
-	},
-	"pages": [
-		{
+	"pages": [{
 			"path": "pages/home/home"
 		},
 		{
@@ -73,27 +60,21 @@
 			}
 		}
 	],
-	"subPackages": [],
 	"globalStyle": {
-		"leftWindow": false,
-		"topWindow": false,
-		"pageOrientation": "portrait",
 		"navigationStyle": "custom",
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "",
 		"backgroundColor": "#373745",
 		"backgroundColorTop": "#373745",
 		"backgroundColorBottom": "#373745",
-		"navigationBarTextStyle": "white",
-		"navigationBarBackgroundColor": "#373745",
-		"mp-360": {
-			"navigationStyle": "custom"
+		"navigationBarBackgroundColor": "#373745"
+	},
+	"uniIdRouter": {},
+	"easycom": {
+		"autoscan": true,
+		"custom": {
+			"^u-(.*)": "@/uni_modules/uview-pro/components/u-$1/u-$1.vue"
 		}
-	},
-	"h5": {
-		"titleNView": false
-	},
-	
-	"app-plus": {
-		"titleNView": false
 	},
 	"tabBar": {
 		"color": "rgb(153, 153, 153)",
@@ -126,11 +107,5 @@
 				"text": "我的"
 			}
 		]
-	},
-	"easycom": {
-		"autoscan": true,
-		"custom": {
-			"^u-(.*)": "uview-pro/components/u-$1/u-$1.vue"
-		}
 	}
 }

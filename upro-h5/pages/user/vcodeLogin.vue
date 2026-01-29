@@ -1,5 +1,5 @@
 <template>
-	<uni-nav-bar left-icon="left" @clickLeft="() => {uni.navigateBack()}" title=""></uni-nav-bar>
+	<u-navbar title=""></u-navbar>
 	<view class="title">
 		登录
 	</view>

@@ -2,7 +2,9 @@
 import { createSSRApp } from 'vue'
 import App from './App.vue'
 import { createPinia } from 'pinia'
-import uViewPro from 'uview-pro'
+import uViewPro, { httpPlugin } from "@/uni_modules/uview-pro"
+import themes from '@/common/uview-pro.theme'
+import { httpInterceptor, httpRequestConfig } from './common/http.interceptor'
 
 export function createApp() {
   const app = createSSRApp(App)
@@ -10,15 +12,9 @@ export function createApp() {
   
   // 1. 安装 Pinia
   app.use(pinia)
-  app.use(uViewPro)
+  app.use(uViewPro, { themes, defaultTheme: 'dark', defaultThemeMode: 'dark' })
   
-  // 2. 配置全局属性
-  app.config.globalProperties.$adpid = "1111111111"
-  app.config.globalProperties.$backgroundAudioData = {
-    playing: false,
-    playTime: 0,
-    formatedPlayTime: '00:00:00'
-  }
+  app.use(httpPlugin, { interceptor: httpInterceptor, config: httpRequestConfig })
   
   return {
     app

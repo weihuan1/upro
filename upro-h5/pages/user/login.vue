@@ -1,5 +1,5 @@
 <template>
-	<uni-nav-bar left-icon="left" @clickLeft="() => {uni.navigateBack()}" title=""></uni-nav-bar>
+	<u-navbar title=""></u-navbar>
 	<view class="title">
 		登录
 	</view>
@@ -7,12 +7,12 @@
 		<view class="label"></view>
 		<view class="input-bg">
 			<input class="uni-input" type="text" name="input" placeholder="请输入邮箱/手机号" />
-			<uni-icons type="closeempty" size="20"></uni-icons>
+			<u-icon name="close" size="28"></u-icon>
 		</view>
 		<view class="input-bg input2">
 			<input class="uni-input" :password="!showPass" type="numeric" name="input" placeholder="请输入密码" />
-			<uni-icons v-if="!showPass" size="20" type="eye" @click="togglePass"></uni-icons>
-			<uni-icons v-else type="eye-slash" size="20" @click="togglePass"></uni-icons>
+			<u-icon v-if="!showPass" size="28" name="eye" @click="togglePass"></u-icon>
+			<u-icon v-else name="eye-off" size="28" @click="togglePass"></u-icon>
 		</view>
 		<view class="tips flex">
 			<view class="left">忘记密码</view>

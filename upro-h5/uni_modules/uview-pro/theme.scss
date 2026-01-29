@@ -1,0 +1,116 @@
+// 此文件为uView的主题变量，这些变量目前只能通过uni.scss引入才有效，另外由于
+// uni.scss中引入的样式会同时混入到全局样式文件和单独每一个页面的样式中，造成微信程序包太大，
+// 故uni.scss只建议放scss变量名相关样式，其他的样式可以通过main.js或者App.vue引入
+
+:root,
+page {
+    /* 纯色 */
+    --u-white-color: #ffffff;
+    --u-black-color: #000000;
+
+    /* 字体色 - 暗黑系适配 */
+    --u-main-color: #fff;           /* 主要文字颜色 */
+    --u-content-color: #fff;        /* 内容文字颜色 */
+    --u-tips-color: #90909c;           /* 提示/辅助文字 */
+    --u-light-color: #6c6c78;          /* 浅色文字，用于次要信息 */
+
+    /* 边框色 - 暗黑系 */
+    --u-border-color: #3a3a44;         /* 常规边框 */
+    --u-divider-color: #3a3a44;        /* 分隔线颜色 */
+
+    /* 遮罩色 - 暗黑系适配 */
+    --u-mask-color: rgba(34, 34, 44, 0.8);  /* 遮罩颜色，使用背景色透明 */
+    --u-shadow-color: rgba(0, 0, 0, 0.3);   /* 阴影颜色，加深 */
+
+    /* 背景色 - 暗黑系 */
+    --u-bg-color: #22222c;             /* 主要背景色 */
+    --u-bg-white: #2a2a34;             /* 白色背景变为深灰 */
+    --u-bg-gray-light: #32323c;        /* 浅灰色背景变为深灰 */
+    --u-bg-gray-dark: #1a1a22;         /* 深灰色背景更暗 */
+    --u-bg-black: #0f0f14;             /* 黑色背景 */
+
+    /* 主色 - 紫色主题 */
+    --u-type-primary: #bf5fc1;         /* 主色：紫色 */
+    --u-type-primary-light: rgba(191, 95, 193, 0.15);  /* 浅色背景 */
+    --u-type-primary-disabled: #6e4e6f;  /* 禁用状态紫色 */
+    --u-type-primary-dark: #a04da2;     /* 深色紫色，用于悬浮/点击 */
+
+    /* 警告色 - 适配暗黑 */
+    --u-type-warning: #ffb347;         /* 警告色（稍暖） */
+    --u-type-warning-disabled: #997a4c;  /* 禁用警告色 */
+    --u-type-warning-dark: #e69c3e;    /* 深色警告色 */
+    --u-type-warning-light: rgba(255, 179, 71, 0.15);  /* 浅色警告背景 */
+
+    /* 成功色 - 适配暗黑 */
+    --u-type-success: #6bcf7f;         /* 成功色（稍亮） */
+    --u-type-success-disabled: #4d8057;  /* 禁用成功色 */
+    --u-type-success-dark: #5ab86c;    /* 深色成功色 */
+    --u-type-success-light: rgba(107, 207, 127, 0.15);  /* 浅色成功背景 */
+
+    /* 错误色 - 适配暗黑 */
+    --u-type-error: #ff6b6b;           /* 错误色（稍亮） */
+    --u-type-error-disabled: #995b5b;  /* 禁用错误色 */
+    --u-type-error-dark: #e55c5c;      /* 深色错误色 */
+    --u-type-error-light: rgba(255, 107, 107, 0.15);  /* 浅色错误背景 */
+
+    /* 信息色 - 适配暗黑 */
+    --u-type-info: #8a8aa0;            /* 信息色（适配暗黑） */
+    --u-type-info-disabled: #5a5a66;   /* 禁用信息色 */
+    --u-type-info-dark: #7a7a8a;       /* 深色信息色 */
+    --u-type-info-light: rgba(138, 138, 160, 0.15);  /* 浅色信息背景 */
+}
+
+// 纯色
+$u-white-color: var(--u-white-color);
+$u-black-color: var(--u-black-color);
+
+// 字体色
+$u-main-color: var(--u-main-color);
+$u-content-color: var(--u-content-color);
+$u-tips-color: var(--u-tips-color);
+$u-light-color: var(--u-light-color);
+
+// 边框色
+$u-border-color: var(--u-border-color);
+$u-divider-color: var(--u-divider-color);
+
+// 遮罩色
+$u-mask-color: var(--u-mask-color);
+$u-shadow-color: var(--u-shadow-color);
+
+// 背景色
+$u-bg-color: var(--u-bg-color);
+$u-bg-white: var(--u-bg-white);
+$u-bg-gray-light: var(--u-bg-gray-light);
+$u-bg-gray-dark: var(--u-bg-gray-dark);
+$u-bg-black: var(--u-bg-black);
+
+// 主色
+$u-type-primary: var(--u-type-primary);
+$u-type-primary-light: var(--u-type-primary-light);
+$u-type-primary-disabled: var(--u-type-primary-disabled);
+$u-type-primary-dark: var(--u-type-primary-dark);
+
+// 警告色
+$u-type-warning: var(--u-type-warning);
+$u-type-warning-disabled: var(--u-type-warning-disabled);
+$u-type-warning-dark: var(--u-type-warning-dark);
+$u-type-warning-light: var(--u-type-warning-light);
+
+// 成功色
+$u-type-success: var(--u-type-success);
+$u-type-success-disabled: var(--u-type-success-disabled);
+$u-type-success-dark: var(--u-type-success-dark);
+$u-type-success-light: var(--u-type-success-light);
+
+// 错误色
+$u-type-error: var(--u-type-error);
+$u-type-error-disabled: var(--u-type-error-disabled);
+$u-type-error-dark: var(--u-type-error-dark);
+$u-type-error-light: var(--u-type-error-light);
+
+// 信息色
+$u-type-info: var(--u-type-info);
+$u-type-info-disabled: var(--u-type-info-disabled);
+$u-type-info-dark: var(--u-type-info-dark);
+$u-type-info-light: var(--u-type-info-light);

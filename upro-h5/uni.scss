@@ -1,186 +1,106 @@
-@import 'uview-pro/theme.scss';
+@import "@/uni_modules/uview-pro/theme.scss";
+
 /**
- * 暗色主题 uni-app 样式变量
- * 主色调：深紫色 #22222c
- * 使用 px 单位
+ * 这里是uni-app内置的常用样式变量 - 暗黑午夜紫主题
+ * 主背景: #22222C, 主题色: #bf5fc1
  */
 
-/* 颜色变量 */
+/* 颜色变量 - 暗黑午夜紫主题 */
 
-/* 行为相关颜色 - 使用高对比度亮色 */
-$uni-color-primary: #6c63ff;          // 紫色系主色调，与#22222c搭配
-$uni-color-success: #34c759;          // 绿色，保持明亮
-$uni-color-warning: #ff9500;          // 橙色，保持明亮
-$uni-color-error: #ff3b30;            // 红色，保持明亮
-$uni-color-info: #5ac8fa;             // 亮蓝色
+/* 行为相关颜色 */
+$uni-color-primary: #bf5fc1;  // 主题紫色
+$uni-color-success: #66bb6a;
+$uni-color-warning: #ffa726;
+$uni-color-error: #ef5350;
+$uni-color-info: #2196f3;
 
-/* 文字基本颜色 - 白色系为主 */
-$uni-text-color: #ffffff;             // 主要文字颜色 - 白色
-$uni-text-color-inverse: #22222c;     // 反色文字 - 深紫色背景上
-$uni-text-color-grey: #a0a0a0;        // 次要灰色文字
-$uni-text-color-placeholder: #777777; // 输入框占位符颜色
-$uni-text-color-disable: #666666;     // 禁用状态文字颜色
+/* 文字基本颜色 - 适配暗黑背景 */
+$uni-text-color: #e0e0e0;  // 亮灰色文字（在深色背景下）
+$uni-text-color-inverse: #22222C;  // 反色 - 暗黑背景色
+$uni-text-color-grey: #a0a0a8;  // 灰色文字
+$uni-text-color-placeholder: #6c6c78;  // 占位符颜色
+$uni-text-color-disable: #5a5a66;  // 禁用色
 
-/* 背景颜色 - 深色渐变 */
-$uni-bg-color: #22222c;               // 主要背景色 - 深紫色
-$uni-bg-color-secondary: #2a2a36;     // 次级背景色
-$uni-bg-color-tertiary: #323240;      // 三级背景色
-$uni-bg-color-grey: #2e2e3a;          // 灰色背景
-$uni-bg-color-hover: #3a3a46;         // 悬停状态背景色
-$uni-bg-color-mask: rgba(0, 0, 0, 0.7); // 遮罩颜色 - 更深的黑色
+/* 背景颜色 - 暗黑系 */
+$uni-bg-color: #22222C;  // 主要背景 - 暗黑色
+$uni-bg-color-grey: #2a2a34;  // 灰色背景 - 稍亮的暗黑
+$uni-bg-color-hover: #32323c;  // 悬浮状态
+$uni-bg-color-mask: rgba(34, 34, 44, 0.85);  // 暗黑遮罩
 
-/* 边框颜色 - 深色系 */
-$uni-border-color: #3a3a46;           // 主要边框颜色
-$uni-border-color-light: #444450;     // 浅色边框
-$uni-border-color-dark: #2e2e3a;      // 深色边框
-
-/* 卡片/模块颜色 */
-$uni-card-bg: #2a2a36;                // 卡片背景色
-$uni-modal-bg: #2a2a36;               // 弹窗背景色
-$uni-tabbar-bg: #22222c;              // 底部导航栏背景
-$uni-navbar-bg: #22222c;              // 顶部导航栏背景
+/* 边框颜色 */
+$uni-border-color: #3a3a44;  // 暗灰边框
 
 /* 阴影颜色 */
-$uni-shadow-color: rgba(0, 0, 0, 0.3);
-$uni-shadow-color-light: rgba(0, 0, 0, 0.2);
-$uni-shadow-color-dark: rgba(0, 0, 0, 0.4);
+$uni-shadow-color: rgba(191, 95, 193, 0.2);  // 紫色阴影
 
-/* 尺寸变量 - 使用 px */
+/* 尺寸变量 */
 
 /* 文字尺寸 */
-$uni-font-size-sm: 12px;              // 小号文字
-$uni-font-size-base: 14px;            // 基础文字
-$uni-font-size-lg: 16px;              // 大号文字
-$uni-font-size-xl: 18px;              // 加大文字
-$uni-font-size-xxl: 20px;             // 特大文字
+$uni-font-size-sm: 12px;
+$uni-font-size-base: 14px;
+$uni-font-size-lg: 16px;
+$uni-font-size-xl: 18px;
+$uni-font-size-xxl: 20px;
 
 /* 图片尺寸 */
-$uni-img-size-sm: 20px;               // 小图标
-$uni-img-size-base: 26px;             // 基础图标
-$uni-img-size-lg: 40px;               // 大图标
-$uni-img-size-xl: 60px;               // 超大图标
+$uni-img-size-sm: 20px;
+$uni-img-size-base: 26px;
+$uni-img-size-lg: 40px;
+$uni-img-size-xl: 60px;
 
 /* Border Radius */
-$uni-border-radius-sm: 4px;           // 小圆角
-$uni-border-radius-base: 6px;         // 基础圆角
-$uni-border-radius-lg: 8px;           // 大圆角
-$uni-border-radius-xl: 12px;          // 加大圆角
-$uni-border-radius-circle: 50%;       // 圆形
+$uni-border-radius-sm: 4px;
+$uni-border-radius-base: 6px;
+$uni-border-radius-lg: 8px;
+$uni-border-radius-xl: 12px;
+$uni-border-radius-circle: 50%;
 
 /* 水平间距 */
-$uni-spacing-row-sm: 5px;             // 小水平间距
-$uni-spacing-row-base: 10px;          // 基础水平间距
-$uni-spacing-row-lg: 15px;            // 大水平间距
-$uni-spacing-row-xl: 20px;            // 加大水平间距
+$uni-spacing-row-sm: 5px;
+$uni-spacing-row-base: 10px;
+$uni-spacing-row-lg: 15px;
+$uni-spacing-row-xl: 20px;
 
 /* 垂直间距 */
-$uni-spacing-col-sm: 4px;             // 小垂直间距
-$uni-spacing-col-base: 8px;           // 基础垂直间距
-$uni-spacing-col-lg: 12px;            // 大垂直间距
-$uni-spacing-col-xl: 16px;            // 加大垂直间距
+$uni-spacing-col-sm: 4px;
+$uni-spacing-col-base: 8px;
+$uni-spacing-col-lg: 12px;
+$uni-spacing-col-xl: 16px;
 
 /* 透明度 */
-$uni-opacity-disabled: 0.5;           // 禁用态透明度
-$uni-opacity-hover: 0.8;              // 悬停透明度
-$uni-opacity-active: 0.7;             // 激活透明度
+$uni-opacity-disabled: 0.4;  // 组件禁用态的透明度
+$uni-opacity-mask: 0.6;  // 遮罩透明度
 
-/* 文章场景相关 */
-$uni-color-title: #ffffff;            // 文章标题颜色 - 白色
-$uni-font-size-title: 20px;           // 文章标题
-$uni-color-subtitle: #cccccc;         // 二级标题颜色 - 浅灰色
-$uni-font-size-subtitle: 16px;        // 二级标题
-$uni-color-paragraph: #e0e0e0;        // 文章段落颜色 - 亮灰色
-$uni-font-size-paragraph: 15px;       // 段落文字
+/* 文章场景相关 - 适配暗黑 */
+$uni-color-title: #f0f0f0;  // 文章标题颜色 - 亮色
+$uni-font-size-title: 20px;
+$uni-color-subtitle: #d0d0d8;  // 二级标题颜色
+$uni-font-size-subtitle: 18px;
+$uni-color-paragraph: #c0c0c8;  // 文章段落颜色
+$uni-font-size-paragraph: 15px;
 
-/* 特殊组件颜色 */
-$uni-switch-on-color: $uni-color-primary;
-$uni-switch-off-color: #444450;
-$uni-slider-track-color: #3a3a46;
-$uni-slider-handle-color: $uni-color-primary;
+/* 卡片背景 */
+$uni-card-bg-color: #2a2a34;  // 卡片背景色
+$uni-card-border-color: #3a3a44;  // 卡片边框色
+$uni-card-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);  // 卡片阴影
 
-/* 滚动条颜色 */
-$uni-scrollbar-bg: transparent;
-$uni-scrollbar-thumb: #4a4a56;
-$uni-scrollbar-thumb-hover: #5a5a66;
+/* 输入框样式 */
+$uni-input-bg-color: #2a2a34;  // 输入框背景
+$uni-input-border-color: #3a3a44;  // 输入框边框
+$uni-input-placeholder-color: #6c6c78;  // 输入框占位符
 
-/* 渐变颜色 */
-$uni-gradient-primary: linear-gradient(135deg, #6c63ff, #8a84ff);
-$uni-gradient-dark: linear-gradient(135deg, #22222c, #2a2a36);
-$uni-gradient-light: linear-gradient(135deg, #2a2a36, #323240);
+/* 标签/徽章颜色 */
+$uni-tag-primary-bg: rgba(191, 95, 193, 0.15);  // 紫色标签背景
+$uni-tag-primary-color: #bf5fc1;  // 紫色标签文字
+$uni-tag-success-bg: rgba(102, 187, 106, 0.15);
+$uni-tag-warning-bg: rgba(255, 167, 38, 0.15);
+$uni-tag-error-bg: rgba(239, 83, 80, 0.15);
+$uni-tag-info-bg: rgba(33, 150, 243, 0.15);
 
-/* 输入框颜色 */
-$uni-input-bg: #2a2a36;
-$uni-input-border: #3a3a46;
-$uni-input-focus-border: $uni-color-primary;
-
-/* 按钮颜色 */
-$uni-button-primary-bg: $uni-color-primary;
-$uni-button-primary-color: #ffffff;
-$uni-button-default-bg: #2a2a36;
-$uni-button-default-color: #ffffff;
-$uni-button-default-border: #3a3a46;
-$uni-button-size-sm: 24px;            // 小按钮高度
-$uni-button-size-base: 36px;          // 基础按钮高度
-$uni-button-size-lg: 48px;            // 大按钮高度
-
-/* 标签颜色 */
-$uni-tag-primary-bg: rgba(108, 99, 255, 0.2);
-$uni-tag-primary-color: $uni-color-primary;
-$uni-tag-success-bg: rgba(52, 199, 89, 0.2);
-$uni-tag-success-color: $uni-color-success;
-$uni-tag-size-sm: 20px;               // 小标签高度
-$uni-tag-size-base: 24px;             // 基础标签高度
-
-/* 表格颜色 */
-$uni-table-header-bg: #2a2a36;
-$uni-table-row-bg: #22222c;
-$uni-table-row-hover-bg: #2a2a36;
-$uni-table-border-color: #3a3a46;
-
-/* 弹窗尺寸 */
-$uni-modal-width: 300px;              // 弹窗宽度
-$uni-modal-padding: 20px;             // 弹窗内边距
-$uni-modal-title-size: 18px;          // 弹窗标题大小
-
-/* 导航栏尺寸 */
-$uni-navbar-height: 44px;             // 导航栏高度
-$uni-tabbar-height: 50px;             // 底部导航栏高度
-
-/* 卡片尺寸 */
-$uni-card-padding: 15px;              // 卡片内边距
-$uni-card-margin: 10px;               // 卡片外边距
-$uni-card-border-radius: 8px;         // 卡片圆角
-
-/* 头像尺寸 */
-$uni-avatar-size-sm: 32px;            // 小头像
-$uni-avatar-size-base: 48px;          // 基础头像
-$uni-avatar-size-lg: 64px;            // 大头像
-$uni-avatar-size-xl: 80px;            // 超大头像
-
-/* 列表项尺寸 */
-$uni-list-item-padding: 12px 15px;    // 列表项内边距
-$uni-list-item-height: 44px;          // 列表项高度
-
-/* 表单元素尺寸 */
-$uni-input-height: 36px;              // 输入框高度
-$uni-input-padding: 8px 12px;         // 输入框内边距
-$uni-select-height: 36px;             // 选择框高度
-
-/* 间距系统 */
-$uni-space-xs: 4px;                   // 超小间距
-$uni-space-sm: 8px;                   // 小间距
-$uni-space-base: 12px;                // 基础间距
-$uni-space-lg: 16px;                  // 大间距
-$uni-space-xl: 24px;                  // 超大间距
-$uni-space-xxl: 32px;                 // 特大间距
-
-/* 层级 */
-$uni-zindex-dropdown: 1000;
-$uni-zindex-sticky: 1020;
-$uni-zindex-fixed: 1030;
-$uni-zindex-modal-backdrop: 1040;
-$uni-zindex-modal: 1050;
-$uni-zindex-popover: 1060;
-$uni-zindex-tooltip: 1070;
-$uni-zindex-toast: 1080;
-$uni-zindex-loading: 1090;
+/* 按钮颜色扩展 */
+$uni-btn-primary-bg: #bf5fc1;
+$uni-btn-primary-color: #ffffff;
+$uni-btn-primary-hover-bg: #a04da2;
+$uni-btn-default-bg: #2a2a34;
+$uni-btn-default-color: #e0e0e0;
+$uni-btn-default-border: #3a3a44;
