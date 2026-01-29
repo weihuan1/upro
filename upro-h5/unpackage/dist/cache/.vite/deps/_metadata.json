@@ -1,8 +1,15 @@
 {
-  "hash": "d5ca1484",
+  "hash": "8a594624",
   "configHash": "4a71f467",
-  "lockfileHash": "e3b0c442",
-  "browserHash": "0827a980",
-  "optimized": {},
+  "lockfileHash": "b96bf27a",
+  "browserHash": "561ea0ff",
+  "optimized": {
+    "uview-pro": {
+      "src": "../../../../../node_modules/uview-pro/index.ts",
+      "file": "uview-pro.js",
+      "fileHash": "cde45ea2",
+      "needsInterop": false
+    }
+  },
   "chunks": {}
 }

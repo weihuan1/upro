@@ -47,6 +47,30 @@
 			"style": {
 				"navigationBarTitleText": ""
 			}
+		},
+		{
+			"path": "pages/set/set",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
+		{
+			"path": "pages/set/phone",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
+		{
+			"path": "pages/set/email",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
+		{
+			"path": "pages/set/pass",
+			"style": {
+				"navigationBarTitleText": ""
+			}
 		}
 	],
 	"subPackages": [],
@@ -68,7 +92,6 @@
 		"titleNView": false
 	},
 	
-	// App端设置
 	"app-plus": {
 		"titleNView": false
 	},
@@ -103,5 +126,11 @@
 				"text": "我的"
 			}
 		]
+	},
+	"easycom": {
+		"autoscan": true,
+		"custom": {
+			"^u-(.*)": "uview-pro/components/u-$1/u-$1.vue"
+		}
 	}
 }

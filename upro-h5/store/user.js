@@ -32,6 +32,7 @@ export const useUserStore = defineStore('user', () => {
     // 清除相关存储
     uni.removeStorageSync('token')
     uni.removeStorageSync('userInfo')
+    uni.navigateTo({ url: '/pages/user/login' })
   }
   
   
@@ -83,11 +84,5 @@ export const useUserStore = defineStore('user', () => {
     setUniverifyLogin,
     setUniverifyErrorMsg,
     getPhoneNumber
-  }
-}, {
-  // 持久化配置
-  persist: {
-    key: 'user-store',
-    paths: ['hasLogin', 'loginProvider', 'isUniverifyLogin']
   }
 })

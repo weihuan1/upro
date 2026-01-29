@@ -382,8 +382,7 @@
 
 				&.uni-collapse-item--border {
 					border-bottom-width: 1px;
-					border-bottom-color: red;
-					border-bottom-color: #ebeef5;
+					border-bottom-color: #444459;
 				}
 
 				&.open {

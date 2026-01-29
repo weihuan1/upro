@@ -32,6 +32,7 @@
 </script>
 
 <style lang="scss">
+	@import "uview-pro/index.scss";
 	@import '@/uni_modules/uni-scss/index.scss';
 	/* #ifndef APP-PLUS-NVUE */
 	/* uni.css - 通用组件、模板样式库，可以当作一套ui库应用 */
@@ -50,7 +51,7 @@
 	/* 基础样式 - 三个平台都生效 */
 	page {
 		background: linear-gradient(180deg,#383848,#22222c);
-		height: 100%;
+		min-height: 100%;
 		font-size: 28rpx;
 		color: #ffffff;
 		/* line-height: 1.8; */
@@ -453,7 +454,7 @@
 	.uni-collapse-item__title-text{
 		color: #fbfaff !important;
 	}
-	.uni-collapse-item__title.uni-collapse-item-border, .uni-collapse-item__wrap-content.uni-collapse-item--border{
+	.uni-collapse-item__title.uni-collapse-item-border{
 		border-color: #444459 !important;
 	}
 	.uni-collapse-item__title.is-open {

@@ -13,14 +13,16 @@
     "uni-app",
     "uni-ui",
     "示例工程"
-],
+  ],
   "author": "",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/dcloudio/hello-uniapp/issues"
   },
   "homepage": "https://github.com/dcloudio/hello-uniapp#readme",
-  "dependencies": {},
+  "dependencies": {
+    "uview-pro": "^0.5.3"
+  },
   "dcloudext": {
     "sale": {
       "regular": {

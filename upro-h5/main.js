@@ -2,6 +2,7 @@
 import { createSSRApp } from 'vue'
 import App from './App.vue'
 import { createPinia } from 'pinia'
+import uViewPro from 'uview-pro'
 
 export function createApp() {
   const app = createSSRApp(App)
@@ -9,6 +10,7 @@ export function createApp() {
   
   // 1. 安装 Pinia
   app.use(pinia)
+  app.use(uViewPro)
   
   // 2. 配置全局属性
   app.config.globalProperties.$adpid = "1111111111"

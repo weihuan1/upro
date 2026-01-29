@@ -63,9 +63,14 @@
 				<text class="text">服务</text>
 				<uni-icons size="18" type="right"></uni-icons>
 			</view>
-			<view class="list">
+			<view class="list" @click="uni.navigateTo({ url: '/pages/about/ques' })">
 				<img class="list_icon" src="@/static/icons/ques.png" alt="">
 				<text class="text">常见问题<img class="list_icon sum" src="@/static/image/home/sum.png" alt=""></img></text>
+				<uni-icons size="18" type="right"></uni-icons>
+			</view>
+			<view class="list" @click="uni.navigateTo({ url: '/pages/set/set' })">
+				<img class="list_icon" src="@/static/icons/set.png" alt="">
+				<text class="text">设置</text>
 				<uni-icons size="18" type="right"></uni-icons>
 			</view>
 		</view>
