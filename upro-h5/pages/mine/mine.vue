@@ -1,6 +1,6 @@
 <template>
 	<view class="wrap">
-		<view class="no_login flex">
+		<view class="no_login flex" @click="clickHandle">
 			<img class="avatar" src="@/static/image/user/avatar.png" alt="avatar" />
 			<text class="text">Hi, 登录或者注册</text>
 			<img class="edit" src="@/static/icons/edit.png" alt="edit" />
@@ -85,7 +85,15 @@ onPullDownRefresh(() => {
 	console.log('onPullDownRefresh')
 	console.log('isLoggedIn', isLoggedIn)
 	uni.stopPullDownRefresh();
+	// uni.navigateTo({ url: '/pages/mine/set' })
 })
+const clickHandle = () => {
+	if (isLoggedIn) {
+		uni.navigateTo({ url: '/pages/mine/set' })
+	} else {
+		uni.navigateTo({ url: '/pages/user/login' })
+	}
+}
 </script>
 
 <style lang="scss">

@@ -1,26 +1,32 @@
 <template>
-	<u-navbar title="设置"></u-navbar>
+	<u-navbar title="个人资料"></u-navbar>
 	<view class="wrap set">
 		<view class="list">
-			<text class="txt">汇率设置</text>
-			<text>CNY</text>
+			<text class="txt">更改头像</text>
+			<img class="avatar" src="@/static/image/user/avatar.png" alt="avatar" />
+			<u-icon size="28" name="arrow-right"></u-icon>
 		</view>
-		<view class="list">
-			<text class="txt">语言设置</text>
-			<text>简体中文</text>
+		<view class="list" @click="uni.navigateTo({ url: '/pages/set/nickname' })">
+			<text class="txt">昵称</text>
+			<text>昵称1</text>
 			<u-icon size="28" name="arrow-right"></u-icon>
 		</view>
 		<view class="tips">安全与隐私</view>
+		<view class="list">
+			<text class="txt">出生日期</text>
+			<picker mode="date" :value="date" @change="bindDateChange">
+				<view class="uni-input">{{date}}</view>
+			</picker>
+			<u-icon size="28" name="arrow-right"></u-icon>
+		</view>
 		<view class="list" @click="uni.navigateTo({ url: '/pages/set/phone' })">
-			<text class="txt">登录手机</text>
+			<text class="txt">我的手机</text>
+			<text>123456</text>
 			<u-icon size="28" name="arrow-right"></u-icon>
 		</view>
 		<view class="list" @click="uni.navigateTo({ url: '/pages/set/email' })">
-			<text class="txt">绑定邮箱</text>
-			<u-icon size="28" name="arrow-right"></u-icon>
-		</view>
-		<view class="list" @click="uni.navigateTo({ url: '/pages/set/pass' })">
-			<text class="txt">登录密码</text>
+			<text class="txt">我的邮箱</text>
+			<text>132@qq.com</text>
 			<u-icon size="28" name="arrow-right"></u-icon>
 		</view>
 		<view class="logout" @click="show = true">退出登录</view>
@@ -36,10 +42,20 @@ import { useUserStore } from '@/store/user'
 const show = ref(false);
 const { logout } = useUserStore();
 
+const date = ref(uni.$u.date());
+const bindDateChange = (e) => {
+	date.value = e.detail.value;
+};
+
 </script>
 
 <style lang="scss">
 .set {
+	.avatar {
+		height: 50px;
+		width: 50px;
+		border-radius: 50%;
+	}
 	.list {
 		display: flex;
 		align-items: center;

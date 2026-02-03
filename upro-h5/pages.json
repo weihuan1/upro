@@ -58,6 +58,18 @@
 			"style": {
 				"navigationBarTitleText": ""
 			}
+		},
+		{
+			"path": "pages/mine/set",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
+		{
+			"path": "pages/set/nickname",
+			"style": {
+				"navigationBarTitleText": ""
+			}
 		}
 	],
 	"globalStyle": {
@@ -86,24 +98,24 @@
 		"iconWidth": "17px",
 		"list": [{
 				"pagePath": "pages/home/home",
-				"iconPath": "/static/home.png",
-				"selectedIconPath": "/static/homeHT.png",
+				"iconPath": "static/image/home.png",
+				"selectedIconPath": "static/image/homeHT.png",
 				"text": "首页"
 			},
 			{
 				"pagePath": "pages/data/data",
-				"iconPath": "static/data.png",
-				"selectedIconPath": "static/dataHT.png",
+				"iconPath": "static/image/data.png",
+				"selectedIconPath": "static/image/dataHT.png",
 				"text": "收益"
 			}, {
 				"pagePath": "pages/bot/bot",
-				"iconPath": "static/bot.png",
-				"selectedIconPath": "static/botHT.png",
+				"iconPath": "static/image/bot.png",
+				"selectedIconPath": "static/image/botHT.png",
 				"text": "量化"
 			}, {
 				"pagePath": "pages/mine/mine",
-				"iconPath": "static/mine.png",
-				"selectedIconPath": "static/mineHT.png",
+				"iconPath": "static/image/mine.png",
+				"selectedIconPath": "static/image/mineHT.png",
 				"text": "我的"
 			}
 		]

@@ -40,7 +40,7 @@ page {
 	border: unset;
 	display: flex;
 	align-items: center;
-  padding: 0 12px;
+  padding: 0 14px;
 	justify-content: space-between;
 	.uni-input {
 		background: #5a5a6d !important;
@@ -48,6 +48,9 @@ page {
 	}
 	.uni-input-placeholder {
 		color: rgb(151, 151, 157) !important;
+	}
+	& + .input-bg {
+		margin-top: 16px;
 	}
 }
 .flex {
@@ -57,4 +60,12 @@ page {
 }
 .wrap {
 	padding: 0 22px;
+}
+.gaps {
+	display: block;
+	background-color: #fefefe;
+	opacity: 0.05;
+	height: 1px;
+	margin: 27px 0px;
+	width: 100%;
 }
