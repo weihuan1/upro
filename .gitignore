@@ -1,0 +1,77 @@
+# ========== 通用系统与编辑器文件 ==========
+# 系统文件
+.DS_Store
+Thumbs.db
+*.log
+*.pid
+
+# 编辑器/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ========== 通用运行时与依赖文件 ==========
+# 依赖目录 (各子项目自行管理，根目录忽略)
+*/node_modules/
+*/package-lock.json
+*/yarn.lock
+*/pnpm-lock.yaml
+
+# ========== 各框架/语言构建输出与缓存 ==========
+# Next.js (你的 Next 项目)
+*/.next/
+*/out/
+*/build/
+
+# 通用前端
+*/.svelte-kit/
+*/.astro/
+*/.nuxt/
+*/dist/
+*/tmp/
+
+# Uniapp 相关 (通常会产生 dist, unpackage 目录)
+*/unpackage/dist/
+*/dist/build/
+
+# 可能存在的后端项目（如Python、Go等）
+*.pyc
+__pycache__/
+/go/bin/
+/go/pkg/
+
+# ========== 环境变量与密钥文件 ==========
+# 所有环境变量文件（严格忽略，如需共享配置请使用 .env.example）
+*.env
+*.env.local
+*.env.development
+*.env.production
+.env*.local
+
+# ========== 生产部署与CI/CD ==========
+# 部署平台
+.vercel/
+.netlify/
+.serverless/
+
+# ========== 你原有规则的高优先级补充 ==========
+# 确保你的个人配置被忽略（如果放在根目录）
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# 测试覆盖率
+/coverage
+*.lcov
+
+# 证书文件
+*.pem
+
+# TypeScript
+*.tsbuildinfo
