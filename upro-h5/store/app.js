@@ -1,50 +1,69 @@
-
+// store/app.js
 import { defineStore } from 'pinia'
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 
 export const useAppStore = defineStore('app', () => {
-	const lang = ref('zh-CN')
+  // 设备窗口尺寸 - 核心数据
+  const windowWidth = ref(375) // 默认值，uniapp 标准宽度
+  const windowHeight = ref(667) // 默认值，uniapp 标准高度
+  
+  // ========== Actions ==========
+  
+  /**
+   * 初始化设备信息 (最简单版本)
+   * 在应用启动时调用一次即可
+   */
+  const initDeviceInfo = () => {
+    try {
+      const systemInfo = uni.getSystemInfoSync()
+      windowWidth.value = systemInfo.windowWidth
+      windowHeight.value = systemInfo.windowHeight
+      
+      console.log('设备尺寸初始化:', {
+        width: windowWidth.value,
+        height: windowHeight.value
+      })
+    } catch (error) {
+      console.warn('获取设备信息失败，使用默认值:', error)
+    }
+  }
+  
+  /**
+   * 直接设置自定义尺寸 (可选，用于特殊场景)
+   */
+  const setCustomSize = (width, height) => {
+    if (width) windowWidth.value = width
+    if (height) windowHeight.value = height
+  }
+  
+  /**
+   * 获取 CSS 高度值 (方便模板使用)
+   */
+  const getWindowHeightCSS = () => {
+    return `${windowHeight.value}px`
+  }
+  
+  /**
+   * 判断是否为竖屏
+   */
+  const isPortrait = () => {
+    return windowHeight.value >= windowWidth.value
+  }
 
-	// Getters
-	const currentLang = computed(() => lang.value)
-	const isChinese = computed(() => lang.value === 'zh-CN')
-	const isEnglish = computed(() => lang.value === 'en-US')
-
-	// Actions
-	const setLang = (newLang) => {
-		lang.value = newLang
-		// 可以在这里添加其他逻辑
-		uni.setStorageSync('app-lang', newLang)
-	}
-
-	const toggleLang = () => {
-		lang.value = lang.value === 'zh-CN' ? 'en-US' : 'zh-CN'
-	}
-
-	const initLang = () => {
-		const storedLang = uni.getStorageSync('app-lang')
-		if (storedLang) {
-			lang.value = storedLang
-		}
-	}
-
-	return {
-		// State
-		lang,
-
-		// Getters
-		currentLang,
-		isChinese,
-		isEnglish,
-
-		// Actions
-		setLang,
-		toggleLang,
-		initLang
-	}
+  return {
+    // State
+    windowWidth,
+    windowHeight,
+    
+    // Actions
+    initDeviceInfo,
+    setCustomSize,
+    getWindowHeightCSS,
+    isPortrait
+  }
 }, {
-	persist: {
-		key: 'app-store',
-		paths: ['lang']
-	}
+  persist: {
+    key: 'app-store',
+    paths: ['windowWidth', 'windowHeight'] // 持久化存储，避免每次刷新重新获取
+  }
 })
