@@ -21,7 +21,7 @@
 				<view class="item">
 					<view class="label">
 						<text>点卡账户</text>
-						<u-icon size="28" name="error-circle"></u-icon>
+						<u-icon size="28" @click="show = true" name="error-circle"></u-icon>
 					</view>
 					<text class="num">0.00</text>
 				</view>
@@ -74,12 +74,27 @@
 				<u-icon size="28" name="arrow-right"></u-icon>
 			</view>
 		</view>
+		<u-modal v-model="show" title="" :show-confirm-button="false">
+			<view class="tips_content">
+				<view class="blod">点卡账户推荐使用</view>
+				<view>存放点卡的账户（不可提现）。</view>
+				<view class="blod">相关介绍：</view>
+				<view>
+					1. 点卡套餐限时优惠，购买即送成长值和积分，折扣力度大，多买多赠，强力推荐！！<br>
+					2. 因点卡有加赠活动，购买成功后，点卡余额不能提现。<br>
+					3. 扣费系统优先扣除点卡账户，点卡不足将扣除资金账户。
+				</view>
+				<u-button type="primary" @click="show = false" class="ok-btn">我知道了</u-button>
+			</view>
+		</u-modal>
 	</view>
 </template>
 <script setup>
+import { ref } from 'vue'
 import { onPullDownRefresh } from '@dcloudio/uni-app'
 import { useUserStore } from '@/store/user.js';
 
+const show = ref(false)
 const { isLoggedIn } = useUserStore()
 onPullDownRefresh(() => {
 	console.log('onPullDownRefresh')
@@ -99,7 +114,7 @@ const clickHandle = () => {
 <style lang="scss">
 .no_login {
 	gap: 8px;
-	margin-top: 8px;
+	padding-top: 8px;
 	justify-content: flex-start;
 
 	.avatar {
@@ -193,6 +208,19 @@ const clickHandle = () => {
 		.min {
 			height: 14px;
 		}
+	}
+}
+
+.tips_content {
+	padding: 0 20px 40px 20px;
+	font-size: 14px;
+	line-height: 1.8;
+	font-weight: normal;
+	.blod {
+		font-weight: bold;
+		font-size: 16px;
+		margin-top: 8px;
+		margin-bottom: 8px;
 	}
 }
 </style>

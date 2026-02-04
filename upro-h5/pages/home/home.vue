@@ -1,12 +1,23 @@
 <template>
 	<view class="wrap">
-		<view class="no_login flex" @click="clickHandle">
+		<!-- <view class="no_login flex" @click="clickHandle">
 			<img class="logo_text" src="@/static/image/logo_text.svg" alt="logo" />
 			<view>
 				<text class="text">登录</text>
 				<u-icon size="28" name="arrow-right"></u-icon>
 			</view>
-		</view>
+		</view> -->
+		<u-navbar :height="30" :is-back="false" title="">
+			<template v-slot:left>
+				<img class="logo_text" src="@/static/image/logo_text.svg" alt="logo" />
+			</template>
+			<template v-slot:right>
+				<view class="logo_r">
+					<text class="txt">登录</text>
+					<u-icon size="28" name="arrow-right"></u-icon>
+				</view>
+			</template>
+		</u-navbar>
 		<u-swiper :list="list"></u-swiper>
 		<view class="grid_wrap">
 			<u-grid :col="4" :border="false">
@@ -47,7 +58,8 @@
 			</u-grid>
 		</view>
 		<u-notice-bar mode="horizontal" @click="clickNotice" type="none" :list="noticeList"></u-notice-bar>
-		<img class="agent_img" @click="uni.navigateTo({ url: '/pages/activity/join' })" src="@/static/image/activity/agent_img.jpg" alt=""></img>
+		<img class="agent_img" @click="uni.navigateTo({ url: '/pages/activity/join' })"
+			src="@/static/image/activity/agent_img.jpg" alt=""></img>
 		<view class="card_wrap">
 			<view class="card">
 				<view class="line"></view>
@@ -62,12 +74,94 @@
 				<text class="yst">昨日 &nbsp;&nbsp;&nbsp;0.00 %</text>
 			</view>
 		</view>
-		<img class="agent_img" @click="uni.navigateTo({ url: '/pages/activity/risk' })" src="@/static/image/activity/risk.png" alt=""></img>
-		<view class="list_wrap">
-			<view class="list">
-				<img class="list_icon" src="@/static/icons/buy.png" alt="">
-				<text class="text">购买点卡</text>
-				<u-icon size="28" name="arrow-right"></u-icon>
+		<img class="agent_img" @click="uni.navigateTo({ url: '/pages/activity/risk' })"
+			src="@/static/image/activity/risk.png" alt=""></img>
+		<view class="rank_wrap">
+			<view class="header">
+				<text>主流币</text>
+				<text>币种排行 <u-icon name="arrow-right" size="24"></u-icon></text>
+			</view>
+			<view class="rank_label">
+				<text>名称</text>
+				<text>最新价</text>
+				<text>24h涨幅</text>
+			</view>
+			<view class="rank_item">
+				<view class="name">
+					<img class="rank_img" src="@/static/image/user/avatar.png" alt=""></img>
+					<text class="txt">BTC</text>
+				</view>
+				<view class="price">$30,000</view>
+				<view class="change up">+5.00%</view>
+			</view>
+			<view class="rank_item">
+				<view class="name">
+					<img class="rank_img" src="@/static/image/user/avatar.png" alt=""></img>
+					<text class="txt">BTC</text>
+				</view>
+				<view class="price">$30,000</view>
+				<view class="change up">+5.00%</view>
+			</view>
+			<view class="rank_item">
+				<view class="name">
+					<img class="rank_img" src="@/static/image/user/avatar.png" alt=""></img>
+					<text class="txt">BTC</text>
+				</view>
+				<view class="price">$30,000</view>
+				<view class="change up">+5.00%</view>
+			</view>
+			<view class="rank_item">
+				<view class="name">
+					<img class="rank_img" src="@/static/image/user/avatar.png" alt=""></img>
+					<text class="txt">BTC</text>
+				</view>
+				<view class="price">$30,000</view>
+				<view class="change up">+5.00%</view>
+			</view>
+			<view class="rank_item">
+				<view class="name">
+					<img class="rank_img" src="@/static/image/user/avatar.png" alt=""></img>
+					<text class="txt">BTC</text>
+				</view>
+				<view class="price">$30,000</view>
+				<view class="change down">-5.00%</view>
+			</view>
+		</view>
+		<view class="notice_wrap">
+			<view class="header">
+				<text class="signals" :class="{ active: currentSelect === 'signal' }"
+					@click="currentSelect = 'signal'">行情信号</text>
+				<text class="notice" :class="{ active: currentSelect === 'notice' }" @click="currentSelect = 'notice'">公告</text>
+				<text class="active">
+					<!-- 查看更多 <u-icon name="arrow-right" size="24"></u-icon> -->
+				</text>
+			</view>
+			<view class="content" v-if="currentSelect === 'notice'">
+				<view class="item" v-for="item in noticeData" :key="item.notice_id">
+					<view class="title">{{ item.title }}</view>
+					<view class="time">{{ uni.$u.timeFormat(item.timestamp, 'mm-dd hh:MM:ss') }}</view>
+				</view>
+			</view>
+			<view class="content" v-else-if="currentSelect === 'signal'">
+				<view class="item" v-for="item in signalsData" :key="item.signal_id">
+					<view>
+						<text class="tips">[行情]</text>
+						<text>{{ item.symbol }}</text>
+					</view>
+					<view class="fields">
+						<view v-for="list in item.metadata.fields" :key="list.field_key"
+							:class="['list', list.position === 'top' ? 'top' : 'bottom']">
+							{{ list.label }}: {{ list.value }}
+							<text :style="{ color: list.position === 'top' ? '#2cc197' : '#ff5c5c' }">{{ list.position === 'top' ? '↑'
+								: '↓' }}</text>
+						</view>
+					</view>
+					<view class="title">{{ item.detail_text }}</view>
+					<view class="time">
+						{{ uni.$u.timeFormat(item.timestamp, 'mm-dd hh:MM:ss') }}
+						<text class="ago">{{ formatRelativeTime(item.timestamp) }}</text>
+					</view>
+				</view>
 			</view>
 		</view>
 	</view>
@@ -76,6 +170,7 @@
 import { ref } from 'vue'
 import { onPullDownRefresh } from '@dcloudio/uni-app'
 import { useUserStore } from '@/store/user.js';
+import { formatRelativeTime } from '@/utils/index.js';
 
 // 定义响应式数据
 const list = ref([
@@ -99,6 +194,291 @@ const noticeList = ref([
 	'洛阳亲友如相问',
 	'一片冰心在玉壶'
 ])
+
+const signalsData = ref([
+	{
+		"signal_id": "signal_1770212764763_DOGE_sentiment_0",
+		"signal_type": "market",
+		"timestamp": 1770212764763,
+		"symbol": "DOGE",
+		"is_member_signal": 0,
+		"detail_text": "DOGE情绪数据KOL达到极值，看涨，建议做多（做多）",
+		"metadata": {
+			"field_type": "sentiment",
+			"fields": [
+				{
+					"field_key": "sentiment_score_kol",
+					"label": "看涨",
+					"value": 8.25,
+					"position": "top",
+					"direction": "LONG"
+				}
+			],
+			"turnover24h": null,
+			"direction": "LONG"
+		},
+		"time_ago": "27分钟前"
+	},
+	{
+		"signal_id": "signal_1770212764763_CHZ_sentiment_1",
+		"signal_type": "market",
+		"timestamp": 1770212764763,
+		"symbol": "CHZ",
+		"is_member_signal": 0,
+		"detail_text": "CHZ情绪数据新闻达到极值，看涨，建议做多（做多）",
+		"metadata": {
+			"field_type": "sentiment",
+			"fields": [
+				{
+					"field_key": "sentiment_score_news",
+					"label": "看涨",
+					"value": 8.75,
+					"position": "top",
+					"direction": "LONG"
+				}
+			],
+			"turnover24h": null,
+			"direction": "LONG"
+		},
+		"time_ago": "27分钟前"
+	},
+	{
+		"signal_id": "signal_1770212764763_TRX_technical_2",
+		"signal_type": "market",
+		"timestamp": 1770212764763,
+		"symbol": "TRX",
+		"is_member_signal": 0,
+		"detail_text": "TRX技术指标动能处于极值，动能疲软，建议做空（做空）",
+		"metadata": {
+			"field_type": "technical",
+			"fields": [
+				{
+					"field_key": "technical_score_momentum_1h",
+					"label": "动能疲软",
+					"value": 3.95,
+					"position": "bottom",
+					"direction": "SHORT"
+				}
+			],
+			"turnover24h": null,
+			"direction": "SHORT"
+		},
+		"time_ago": "27分钟前"
+	},
+	{
+		"signal_id": "signal_1770212764763_GIGGLE_technical_3",
+		"signal_type": "market",
+		"timestamp": 1770212764763,
+		"symbol": "GIGGLE",
+		"is_member_signal": 0,
+		"detail_text": "GIGGLE技术指标布林线、吸筹信号、强烈看多、动能、ATR波动、量价达到极值，上穿上轨、吸筹信号、看多、超买、波动剧烈、吸筹信号，建议做多（做多）",
+		"metadata": {
+			"field_type": "technical",
+			"fields": [
+				{
+					"field_key": "technical_ind_bbands_signal_1h",
+					"label": "上穿上轨",
+					"value": 9,
+					"position": "top",
+					"direction": "LONG"
+				},
+				{
+					"field_key": "technical_ind_volprice_signal_1h",
+					"label": "吸筹信号",
+					"value": 8.4,
+					"position": "top",
+					"direction": "LONG"
+				},
+				{
+					"field_key": "technical_score_1h",
+					"label": "看多",
+					"value": 8.37,
+					"position": "top",
+					"direction": "LONG"
+				},
+				{
+					"field_key": "technical_score_momentum_1h",
+					"label": "超买",
+					"value": 10,
+					"position": "top",
+					"direction": "LONG"
+				},
+				{
+					"field_key": "technical_ind_atr_signal_1h",
+					"label": "波动剧烈",
+					"value": 10,
+					"position": "top",
+					"direction": "LONG"
+				},
+				{
+					"field_key": "technical_score_volprice_1h",
+					"label": "吸筹信号",
+					"value": 8.4,
+					"position": "top",
+					"direction": "LONG"
+				}
+			],
+			"turnover24h": null,
+			"direction": "LONG"
+		},
+		"time_ago": "27分钟前"
+	},
+	{
+		"signal_id": "signal_1770212764763_ZKP_technical_4",
+		"signal_type": "market",
+		"timestamp": 1770212764763,
+		"symbol": "ZKP",
+		"is_member_signal": 0,
+		"detail_text": "ZKP技术指标RSI、波动率达到极值，超买、价格波动大，建议做多（做多）",
+		"metadata": {
+			"field_type": "technical",
+			"fields": [
+				{
+					"field_key": "technical_ind_rsi_signal_1h",
+					"label": "超买",
+					"value": 10,
+					"position": "top",
+					"direction": "LONG"
+				},
+				{
+					"field_key": "technical_score_volatility_1h",
+					"label": "价格波动大",
+					"value": 8.68,
+					"position": "top",
+					"direction": "LONG"
+				}
+			],
+			"turnover24h": null,
+			"direction": "LONG"
+		},
+		"time_ago": "27分钟前"
+	},
+	{
+		"signal_id": "signal_1770212764763_ZIL_technical_5",
+		"signal_type": "market",
+		"timestamp": 1770212764763,
+		"symbol": "ZIL",
+		"is_member_signal": 0,
+		"detail_text": "ZIL技术指标随机震荡达到极值，动能向上，建议做多（做多）",
+		"metadata": {
+			"field_type": "technical",
+			"fields": [
+				{
+					"field_key": "technical_ind_stoch_signal_1h",
+					"label": "动能向上",
+					"value": 8,
+					"position": "top",
+					"direction": "LONG"
+				}
+			],
+			"turnover24h": null,
+			"direction": "LONG"
+		},
+		"time_ago": "27分钟前"
+	},
+	{
+		"signal_id": "signal_1770212764763_ZAMA_sentiment_6",
+		"signal_type": "market",
+		"timestamp": 1770212764763,
+		"symbol": "ZAMA",
+		"is_member_signal": 0,
+		"detail_text": "ZAMA情绪数据社交媒体、社交声量达到极值，看涨、8757，建议做多（做多）",
+		"metadata": {
+			"field_type": "sentiment",
+			"fields": [
+				{
+					"field_key": "sentiment_score_volume",
+					"label": "看涨",
+					"value": 9.87,
+					"position": "top",
+					"direction": "LONG"
+				},
+				{
+					"field_key": "sentiment_24h_social_volume",
+					"label": "8757",
+					"value": 8757,
+					"position": "top",
+					"direction": "LONG"
+				}
+			],
+			"turnover24h": null,
+			"direction": "LONG"
+		},
+		"time_ago": "27分钟前"
+	},
+	{
+		"signal_id": "signal_1770212764763_FIL_sentiment_7",
+		"signal_type": "market",
+		"timestamp": 1770212764763,
+		"symbol": "FIL",
+		"is_member_signal": 0,
+		"detail_text": "FIL情绪数据新闻处于极值，看跌，建议做空（做空）",
+		"metadata": {
+			"field_type": "sentiment",
+			"fields": [
+				{
+					"field_key": "sentiment_score_news",
+					"label": "看跌",
+					"value": 0,
+					"position": "bottom",
+					"direction": "SHORT"
+				}
+			],
+			"turnover24h": null,
+			"direction": "SHORT"
+		},
+		"time_ago": "27分钟前"
+	},
+	{
+		"signal_id": "signal_1770212764763_G_technical_8",
+		"signal_type": "market",
+		"timestamp": 1770212764763,
+		"symbol": "G",
+		"is_member_signal": 0,
+		"detail_text": "G技术指标趋势达到极值，上升趋势，建议做多（做多）",
+		"metadata": {
+			"field_type": "technical",
+			"fields": [
+				{
+					"field_key": "technical_score_trend_1h",
+					"label": "上升趋势",
+					"value": 8.28,
+					"position": "top",
+					"direction": "LONG"
+				}
+			],
+			"turnover24h": null,
+			"direction": "LONG"
+		},
+		"time_ago": "27分钟前"
+	}
+])
+
+const noticeData = ref([
+	{
+		"notice_id": "notice_1770209164651_0",
+		"timestamp": 1770209164651,
+		"title": "系统维护公告",
+		"detail_text": "尊敬的用户，您好！为了提升您的使用体验，我们计划于2024年10月1日凌晨2:00至4:00进行系统维护。在此期间，部分服务可能会受到影响。感谢您的理解与支持！",
+		"time_ago": "1小时前"
+	},
+	{
+		"notice_id": "notice_1770209164651_1",
+		"timestamp": 1770209164651,
+		"title": "新功能上线通知",
+		"detail_text": "我们很高兴地宣布，平台已上线全新的交易分析工具，帮助您更好地把握市场动态。欢迎前往体验，并期待您的宝贵反馈！",
+		"time_ago": "2小时前"
+	},
+	{
+		"notice_id": "notice_1770209164651_2",
+		"timestamp": 1770209164651,
+		"title": "安全提醒",
+		"detail_text": "为了保障您的账户安全，请定期更改密码，并开启双重认证功能。如发现任何异常活动，请立即联系我们的客服团队。",
+		"time_ago": "3小时前"
+	}
+])
+
+const currentSelect = ref('signal');
 
 const { isLoggedIn } = useUserStore()
 onPullDownRefresh(() => {
@@ -125,30 +505,22 @@ const clickNotice = (index) => {
 </script>
 
 <style lang="scss">
-.no_login {
-	gap: 8px;
-	justify-content: space-between;
-	position: sticky;
-  top: 0;
-	height: 32px;
-  z-index: 100;
-	background: #383848;
+.wrap {
+	padding-bottom: 20px;
+}
 
-	.logo_text {
-		height: 20px;
-	}
-
-	.text {
-		flex: 1;
-	}
-
-	.edit {
-		height: 20px;
-		width: 20px;
+.logo_text {
+	margin-left: 20px;
+	height: 20px;
+}
+.logo_r {
+	margin-right: 20px;
+	.txt {
+		margin-right: 6px;
 	}
 }
+
 .grid_wrap {
-	margin-top: 8px;
 	.grid_icon {
 		width: 42px;
 		height: 42px;
@@ -158,28 +530,33 @@ const clickNotice = (index) => {
 		margin-top: 6px;
 	}
 }
+
 .agent_img {
 	width: 100%;
-	margin: 12px 0;
+	margin: 12px 0 10px 0;
 	border-radius: 8px;
 }
+
 .card_wrap {
 	display: flex;
 	justify-content: space-between;
-	.card{
+
+	.card {
 		flex: 1;
 		background: url('@/static/image/home/b_icon.svg') no-repeat;
 		background-size: 120% 120%;
 		background-position: 0% 120%;
 		border-radius: 0 0 8px 8px;
 		font-size: 14px;
-		border-top: 1px solid linear-gradient(131.47deg,#fc5d9f -37.41%,#5863fc 111.11%);
+		border-top: 1px solid linear-gradient(131.47deg, #fc5d9f -37.41%, #5863fc 111.11%);
 		background-color: #393948;
 		padding-bottom: 12px;
+
 		.line {
 			height: 1px;
-			background: linear-gradient(131.47deg,#fc5d9f -37.41%,#5863fc 111.11%);
+			background: linear-gradient(131.47deg, #fc5d9f -37.41%, #5863fc 111.11%);
 		}
+
 		.label {
 			color: #fff;
 			display: flex;
@@ -214,40 +591,154 @@ const clickNotice = (index) => {
 		}
 	}
 }
-.list_wrap {
+
+.rank_wrap {
 	border-radius: 8px;
 	overflow: hidden;
-	padding: 0 20px;
-	background: rgb(57, 57, 72);
+	background: #393948;
+	padding-bottom: 12px;
 
-	.list {
-		padding: 14px 0;
+	.header {
+		padding: 14px 20px;
+		display: flex;
+		justify-content: space-between;
+		font-weight: bold;
+		font-size: 16px;
+		color: #fff;
+	}
+
+	.rank_label {
+		padding: 0 20px;
+		display: flex;
+		justify-content: space-between;
+		font-size: 14px;
+		color: #999;
+	}
+
+	.rank_item {
+		padding: 0 20px;
+		display: flex;
+		justify-content: space-between;
+		font-size: 16px;
+		align-items: center;
+		color: #fff;
+		margin-top: 16px;
+
+		.name {
+			display: flex;
+			align-items: center;
+		}
+
+		.txt {
+			position: relative;
+			left: 6px;
+		}
+
+		.rank_img {
+			width: 22px;
+			height: 22px;
+			border-radius: 50%;
+		}
+
+		.change.up {
+			border-radius: 2px;
+			padding: 2px 10px;
+			color: #fff;
+			background-color: #2cc197;
+			font-size: 13px;
+		}
+
+		.change.down {
+			color: #fff;
+			background-color: #ff5c5c;
+			border-radius: 2px;
+			padding: 2px 10px;
+			font-size: 13px;
+		}
+	}
+}
+
+.notice_wrap {
+	margin-top: 16px;
+	border-radius: 8px;
+	overflow: hidden;
+	background: #393948;
+	padding: 14px 20px;
+
+	.header {
 		display: flex;
 		align-items: center;
+		font-size: 16px;
+		color: #999;
+		font-weight: bold;
 
-		&+.list {
-			border-top: 1px solid #444459;
+		.active {
+			color: #fff;
 		}
+	}
 
-		.text {
-			flex: 1;
+	.notice {
+		flex: 1;
+		margin: 0 20px;
+	}
+
+	.content {
+		min-height: 400px;
+
+		.item {
+			padding: 12px 0;
+			& + .item {
+				border-top: 1px solid #4b4b55;
+			}
+			.tips {
+				background: rgba(26, 123, 202, 0.3);
+				color: #0e9cee;
+				display: inline-block;
+				font-size: 13px;
+				padding: 0px 6px;
+				height: 24px;
+				line-height: 24px;
+				border-radius: 4px;
+				margin-right: 10px;
+			}
+
+			.title {
+				color: #fff;
+				font-size: 14px;
+			}
+
+			.time {
+				color: #666f83;
+				font-size: 13px;
+				margin-top: 4px;
+
+				.ago {
+					margin-left: 10px;
+				}
+			}
 		}
+	}
 
-		.list_icon {
-			height: 20px;
-			margin-right: 10px;
-		}
+	.fields {
+		margin: 8px 0;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
 
-		.u-icon {
-			color: #999 !important;
-		}
+		.list {
+			font-size: 13px;
+			color: #fff;
+			margin-top: 4px;
+			padding: 2px 6px;
+			border-radius: 4px;
 
-		.sum {
-			margin-left: 8px;
-		}
+			&.top {
+				background-color: rgba(44, 193, 151, 0.2);
+			}
 
-		.min {
-			height: 14px;
+			&.bottom {
+				background-color: rgba(255, 92, 92, 0.2);
+			}
 		}
 	}
 }
