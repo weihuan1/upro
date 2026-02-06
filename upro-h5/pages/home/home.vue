@@ -1,23 +1,23 @@
 <template>
-	<view class="wrap">
-		<!-- <view class="no_login flex" @click="clickHandle">
-			<img class="logo_text" src="@/static/image/logo_text.svg" alt="logo" />
-			<view>
-				<text class="text">登录</text>
+	<u-navbar :height="34" :border-bottom="false" :is-back="false" title="">
+		<template v-slot:left>
+			<view class="info" v-if="isLoggedIn">
+				<img class="avatar" src="@/static/image/user/avatar.png" alt="avatar" />
+				<text>1234@qq.com</text>
+			</view>
+			<img v-else class="logo_text" src="@/static/image/logo_text.svg" alt="logo" />
+		</template>
+		<template v-slot:right>
+			<view class="logo_r" v-if="isLoggedIn">
+				<u-icon size="44" name="bell"></u-icon>
+			</view>
+			<view class="logo_r" v-else @click="uni.navigateTo({ url: '/pages/user/login' })">
+				<text class="txt">登录</text>
 				<u-icon size="28" name="arrow-right"></u-icon>
 			</view>
-		</view> -->
-		<u-navbar :height="30" :is-back="false" title="">
-			<template v-slot:left>
-				<img class="logo_text" src="@/static/image/logo_text.svg" alt="logo" />
-			</template>
-			<template v-slot:right>
-				<view class="logo_r">
-					<text class="txt">登录</text>
-					<u-icon size="28" name="arrow-right"></u-icon>
-				</view>
-			</template>
-		</u-navbar>
+		</template>
+	</u-navbar>
+	<view class="wrap">
 		<u-swiper :list="list"></u-swiper>
 		<view class="grid_wrap">
 			<u-grid :col="4" :border="false">
@@ -513,8 +513,22 @@ const clickNotice = (index) => {
 	margin-left: 20px;
 	height: 20px;
 }
+
+.info {
+	display: flex;
+	margin-left: 20px;
+
+	.avatar {
+		width: 24px;
+		height: 24px;
+		border-radius: 50%;
+		margin-right: 4px;
+	}
+}
+
 .logo_r {
 	margin-right: 20px;
+
 	.txt {
 		margin-right: 6px;
 	}
@@ -687,9 +701,11 @@ const clickNotice = (index) => {
 
 		.item {
 			padding: 12px 0;
-			& + .item {
+
+			&+.item {
 				border-top: 1px solid #4b4b55;
 			}
+
 			.tips {
 				background: rgba(26, 123, 202, 0.3);
 				color: #0e9cee;

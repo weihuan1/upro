@@ -4,7 +4,7 @@ import { ref, computed } from 'vue'
 
 export const useUserStore = defineStore('user', () => {
   // State
-  const hasLogin = ref(false)
+  const hasLogin = ref(true)
   const isUniverifyLogin = ref(false)
   const loginProvider = ref('')
   const univerifyErrorMsg = ref('')

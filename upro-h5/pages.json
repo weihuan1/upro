@@ -1,12 +1,21 @@
 {
 	"pages": [{
-			"path": "pages/home/home"
+			"path": "pages/home/home",
+			"style": {
+				"enablePullDownRefresh": true
+			}
 		},
 		{
-			"path": "pages/data/data"
+			"path": "pages/data/data",
+			"style": {
+				"enablePullDownRefresh": true
+			}
 		},
 		{
-			"path": "pages/bot/bot"
+			"path": "pages/bot/bot",
+			"style": {
+				"enablePullDownRefresh": true
+			}
 		},
 		{
 			"path": "pages/mine/mine",
