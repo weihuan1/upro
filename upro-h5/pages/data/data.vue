@@ -18,11 +18,11 @@
 	</u-navbar>
 	<view class="wrap">
 		<view class="card pie_wrap">
-			<view class="run_wrap" :class="{show: showTime}" @click="showTime = !showTime">
+			<view class="run_wrap" :class="{ show: showTime }" @click="showTime = !showTime">
 				<u-icon size="36" name="clock"></u-icon>
 				<text class="txt">已运行0天0小时</text>
 			</view>
-			<u-image class="img_bg" width="73px" height="96px"  src="/static/image/home/data_top_icon.png"></u-image>
+			<u-image class="img_bg" width="73px" height="96px" src="/static/image/home/data_top_icon.png"></u-image>
 			<view class="title">累计收益（USDT）</view>
 			<view class="mony">
 				<text class="num up">0.00</text>
@@ -84,7 +84,7 @@
 				<text class="title">收益图表</text>
 				<picker mode="selector" :range="monthRangeData" :value="month" @change="bindDateChange">
 					<view class="date">
-						<text class="txt">{{currentYear}}年{{ month }}月</text>
+						<text class="txt">{{ currentYear }}年{{ month }}月</text>
 						<u-icon size="28" name="arrow-down"></u-icon>
 					</view>
 				</picker>
@@ -109,7 +109,7 @@ import { ref } from 'vue'
 import { onPullDownRefresh } from '@dcloudio/uni-app'
 import { useUserStore } from '@/store/user.js';
 import { optionsDate } from '../../utils/const';
-import {dayjs} from '@/uni_modules/iRainna-dayjs/js_sdk/dayjs.min.js'
+import { dayjs } from '@/uni_modules/iRainna-dayjs/js_sdk/dayjs.min.js'
 const showTime = ref(false)
 const { isLoggedIn } = useUserStore()
 onPullDownRefresh(() => {
@@ -190,51 +190,60 @@ const bindDateChange = (e) => {
 	position: relative;
 	background: linear-gradient(89.84deg, rgba(137, 130, 208, 0.3) 0.17%, rgba(122, 127, 208, 0.3) 50.55%, rgba(87, 106, 185, 0.3) 99.9%);
 	overflow: hidden;
+
 	.run_wrap {
 		position: absolute;
 		left: 100%;
 		height: 26px;
-    border-radius: 12px 0 0 12px;
-    background: hsla(0, 0%, 100%, .18);
-    box-shadow: 0 4px 4px 0 hsla(0, 0%, 100%, .25) inset, 0 -1px 1px 0 hsla(0, 0%, 100%, .35) inset;
-    -webkit-backdrop-filter: blur(7px);
-    backdrop-filter: blur(7px);
+		border-radius: 12px 0 0 12px;
+		background: hsla(0, 0%, 100%, .18);
+		box-shadow: 0 4px 4px 0 hsla(0, 0%, 100%, .25) inset, 0 -1px 1px 0 hsla(0, 0%, 100%, .35) inset;
+		-webkit-backdrop-filter: blur(7px);
+		backdrop-filter: blur(7px);
 		display: flex;
 		align-items: center;
 		font-size: 13px;
 		padding: 0 8px;
 		transform: translateX(-26%);
 		width: auto;
-		transition: transform ease .3s ;
+		transition: transform ease .3s;
+
 		&.show {
 			transform: translateX(-100%);
+
 			.txt {
 				opacity: 1;
 			}
 		}
+
 		.txt {
 			margin-left: 4px;
 			white-space: nowrap;
 			opacity: 0;
 		}
 	}
+
 	.img_bg {
 		position: absolute;
 		right: 10%;
 		top: 50%;
 		transform: translateY(-50%);
 	}
+
 	.title {
 		font-weight: bold;
 	}
+
 	.mony {
 		margin: 18px 0;
 		display: flex;
 		align-items: center;
+
 		.num {
 			font-size: 20px;
 			margin-right: 6px;
 		}
+
 		.pie {
 			border-radius: 10px;
 			font-size: 12px;
@@ -242,11 +251,13 @@ const bindDateChange = (e) => {
 			margin-left: 10px;
 		}
 	}
+
 	.footer {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		font-size: 13px;
+
 		.list {
 			border: 1px solid #eee;
 			border-radius: 6px;
@@ -254,9 +265,11 @@ const bindDateChange = (e) => {
 			align-items: center;
 			padding: 4px 22px;
 			background-color: rgba(255, 255, 255, 0.18);
+
 			.txt {
 				margin-left: 4px;
 			}
+
 			&.warn {
 				color: #ffef60;
 				border-color: #ffef60;
@@ -264,6 +277,7 @@ const bindDateChange = (e) => {
 		}
 	}
 }
+
 .empty {
 	margin: 30px auto 20px;
 	text-align: center;
@@ -273,9 +287,11 @@ const bindDateChange = (e) => {
 .table {
 	font-size: 13px;
 	margin-top: 6px;
+
 	.thead {
 		font-size: 14px;
 	}
+
 	.tr {
 		display: flex;
 		padding: 6px 0;
@@ -303,11 +319,6 @@ const bindDateChange = (e) => {
 }
 
 .card {
-	border-radius: 6px;
-	background: #383848;
-	margin-top: 12px;
-	padding: 12px 20px;
-
 	.head {
 		display: flex;
 		justify-content: space-between;

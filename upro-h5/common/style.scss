@@ -99,6 +99,7 @@ page {
 
 .u-dropdown__content__mask {
 	background: transparent !important;
+	display: none !important;
 }
 
 .dialog-bg {
@@ -162,6 +163,7 @@ page {
 	background: linear-gradient(131.47deg, #fc5d9f -37.41%, #5863fc 111.11%);
 	border-radius: 8px;
 	color: rgb(255, 255, 255);
+	text-align: center;
 }
 
 .up {
@@ -178,4 +180,12 @@ page {
 
 .down_bg {
 	background-color: #ff6b6b;
+}
+.card {
+	border-radius: 6px;
+	background: #383848;
+	padding: 12px 20px;
+	& + .card {
+		margin-top: 12px;
+	}
 }

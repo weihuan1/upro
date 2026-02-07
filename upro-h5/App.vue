@@ -1,9 +1,12 @@
 <script>
 import { useAppStore } from '@/store/app.js'
+import { useConfigStore } from '@/store/config.js'
 export default {
 	onLaunch: function () {
-		const appStore = useAppStore()
-		appStore.initDeviceInfo()
+		const { getConfigData } = useConfigStore()
+		const { initDeviceInfo } = useAppStore()
+		initDeviceInfo()
+		getConfigData()
 		console.log('App Launch')
 	},
 	onShow: function () {
