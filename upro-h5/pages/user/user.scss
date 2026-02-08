@@ -52,19 +52,3 @@
 	text-align: center;
 	margin-top: 50px;
 }
-.code_wrap {
-	.u-btn {
-		background: transparent !important;
-		padding: 0px;
-		font-size: 14px;
-		color: $uni-color-primary;
-		&::after {
-			display: none;
-		}
-	}
-	&.isPedding {
-		.u-btn {
-			color: #999;
-		}
-	}
-}

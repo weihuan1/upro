@@ -22,3 +22,15 @@ export const formatRelativeTime = (timestamp) => {
     return `${Math.floor(diff / year)}年前`;
   }
 };
+
+export const copyHandle = (text) => {
+	uni.setClipboardData({
+		data: text,
+		success: () => {
+			uni.$u.toast('复制成功')
+		},
+		fail: () => {
+			uni.$u.toast('复制失败')
+		}
+	})
+}

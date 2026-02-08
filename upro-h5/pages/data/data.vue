@@ -79,7 +79,7 @@
 				<view class="empty">暂无收益数据</view>
 			</view>
 		</view>
-		<div class="card">
+		<view class="card">
 			<view class="head">
 				<text class="title">收益图表</text>
 				<picker mode="selector" :range="monthRangeData" :value="month" @change="bindDateChange">
@@ -89,18 +89,18 @@
 					</view>
 				</picker>
 			</view>
-			<div class="content">
+			<view class="content">
 				<u-empty text="暂无数据" :icon-size="200" src="/static/image/home/no_data.png" mode="list">
 					<template v-slot:bottom>
 						<view class="empty-txt">添加策略，开启高额收益</view>
 					</template>
 				</u-empty>
-				<div class="btn_wrap">
+				<view class="btn_wrap">
 					<view class="btn">看他人收益</view>
 					<view class="btn primary">去创建策略</view>
-				</div>
-			</div>
-		</div>
+				</view>
+			</view>
+		</view>
 	</view>
 </template>
 
@@ -350,7 +350,6 @@ const bindDateChange = (e) => {
 
 		.empty-txt {
 			color: var(--u-light-color);
-			;
 		}
 	}
 }
@@ -369,6 +368,7 @@ const bindDateChange = (e) => {
 		font-size: 15px;
 		color: #fff;
 		border: 1px solid $uni-color-primary;
+		white-space: nowrap;
 
 		&.primary {
 			background: linear-gradient(131.47deg, #fc5d9f -37.41%, #5863fc 111.11%);

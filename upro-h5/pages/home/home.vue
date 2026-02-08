@@ -143,7 +143,7 @@
 				</view>
 			</view>
 			<view class="content" v-else-if="currentSelect === 'signal'">
-				<view class="item" v-for="item in signalsData" :key="item.signal_id">
+				<view class="item" v-for="(item, index) in signalsData" :key="item.signal_id">
 					<view>
 						<text class="tips">[行情]</text>
 						<text>{{ item.symbol }}</text>
@@ -161,6 +161,7 @@
 						{{ uni.$u.timeFormat(item.timestamp, 'mm-dd hh:MM:ss') }}
 						<text class="ago">{{ formatRelativeTime(item.timestamp) }}</text>
 					</view>
+					<u-line v-show="index !== signalsData.length - 1" />
 				</view>
 			</view>
 		</view>
@@ -560,11 +561,10 @@ const clickNotice = (index) => {
 		background: url('@/static/image/home/b_icon.svg') no-repeat;
 		background-size: 120% 120%;
 		background-position: 0% 120%;
-		border-radius: 0 0 8px 8px;
 		font-size: 14px;
 		border-top: 1px solid linear-gradient(131.47deg, #fc5d9f -37.41%, #5863fc 111.11%);
 		background-color: #393948;
-		padding-bottom: 12px;
+		padding: 0 0 12px;
 
 		.line {
 			height: 1px;
@@ -602,6 +602,7 @@ const clickNotice = (index) => {
 			background-position: -20% 120%;
 			background-color: #393948;
 			margin-left: 14px;
+			margin-top: 0;
 		}
 	}
 }
@@ -673,7 +674,7 @@ const clickNotice = (index) => {
 }
 
 .notice_wrap {
-	margin-top: 16px;
+	margin-top: 12px;
 	border-radius: 8px;
 	overflow: hidden;
 	background: #393948;
@@ -700,10 +701,10 @@ const clickNotice = (index) => {
 		min-height: 400px;
 
 		.item {
-			padding: 12px 0;
+			padding: 12px 0 0;
 
-			&+.item {
-				border-top: 1px solid #4b4b55;
+			.u-line {
+				padding-top: 12px;
 			}
 
 			.tips {

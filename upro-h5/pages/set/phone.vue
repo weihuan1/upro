@@ -82,20 +82,4 @@ function start() {
 	width: 90%;
 	background: linear-gradient(131.47deg, #fc5d9f -37.41%, #5863fc 111.11%);
 }
-.code_wrap {
-	.u-btn {
-		background: transparent !important;
-		padding: 0px;
-		font-size: 14px;
-		color: $uni-color-primary;
-		&::after {
-			display: none;
-		}
-	}
-	&.isPedding {
-		.u-btn {
-			color: #999;
-		}
-	}
-}
 </style>

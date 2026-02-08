@@ -4,9 +4,9 @@
 			<view class="save-btn" @click="saveNickname">保存</view>
 		</template>
 	</u-navbar>
-	<div class="content">
+	<view class="content">
 		<u-input v-model="nickname" placeholder="请输入昵称"></u-input>
-	</div>
+	</view>
 </template>
 
 <script setup>

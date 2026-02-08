@@ -95,6 +95,12 @@ page {
 			margin-top: 6px;
 		}
 	}
+
+	&.big {
+		.u-dropdown__menu__item {
+			margin-right: 16px !important;
+		}
+	}
 }
 
 .u-dropdown__content__mask {
@@ -143,7 +149,7 @@ page {
 }
 
 .wrap {
-	padding: 0 22px;
+	padding: 0 22px 20px;
 }
 
 .gaps {
@@ -164,6 +170,11 @@ page {
 	border-radius: 8px;
 	color: rgb(255, 255, 255);
 	text-align: center;
+	&.big {
+		height: 50px;
+		line-height: 50px;
+		font-size: 16px;
+	}
 }
 
 .up {
@@ -187,5 +198,30 @@ page {
 	padding: 12px 20px;
 	& + .card {
 		margin-top: 12px;
+	}
+}
+.tips {
+	color: rgba(255, 255, 255, .5);
+	font-size: 13px;
+	margin-top: 8px;
+	&.red {
+		color: #fa3d58;
+	}
+}
+
+.wrap .code_wrap {
+	& > .u-btn {
+		background-color: transparent !important;
+		padding: 0px !important;
+		font-size: 15px !important;
+		color: $uni-color-primary !important;
+		&::after {
+			display: none;
+		}
+	}
+	&.isPedding {
+		.u-btn {
+			color: #999;
+		}
 	}
 }
